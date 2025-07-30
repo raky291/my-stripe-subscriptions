@@ -1,13 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createCustomer } from "@/lib/stripe/server";
 
+interface CreateCustomerRequest {
+  record: {
+    id: string;
+    email: string;
+  };
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const body: CreateCustomerRequest = await request.json();
 
     const customer = await createCustomer({
-      email: body.email,
-      userId: body.userId,
+      userId: body.record.id,
+      email: body.record.email,
     });
 
     return NextResponse.json({ customer }, { status: 201 });

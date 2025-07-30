@@ -5,11 +5,11 @@ export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 });
 
 export async function createCustomer({
-  email,
   userId,
+  email,
 }: {
-  email: string;
   userId: string;
+  email: string;
 }) {
   const customer = await stripe.customers.create({
     email: email,
@@ -25,10 +25,14 @@ export async function createCheckoutSession({
   userId,
   customerId,
   priceId,
+  successUrl,
+  cancelUrl,
 }: {
   userId: string;
   customerId: string;
   priceId: string;
+  successUrl: string;
+  cancelUrl: string;
 }) {
   const session = await stripe.checkout.sessions.create({
     mode: "subscription",
@@ -38,8 +42,8 @@ export async function createCheckoutSession({
         quantity: 1,
       },
     ],
-    success_url: `${process.env.BASE_URL}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${process.env.BASE_URL}/pricing`,
+    success_url: `${successUrl}?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: cancelUrl,
     client_reference_id: userId,
     customer: customerId,
     saved_payment_method_options: {
@@ -52,12 +56,14 @@ export async function createCheckoutSession({
 
 export async function createBillingPortalSession({
   customerId,
+  returnUrl,
 }: {
   customerId: string;
+  returnUrl: string;
 }) {
   const session = await stripe.billingPortal.sessions.create({
     customer: customerId,
-    return_url: `${process.env.BASE_URL}/pricing`,
+    return_url: returnUrl,
   });
 
   return session;
