@@ -8,6 +8,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { createCheckout } from "./actions";
 
 export default async function SubscriptionPlansPage() {
   return (
@@ -76,9 +77,20 @@ export default async function SubscriptionPlansPage() {
             </CardContent>
 
             <CardFooter className="flex-col px-6 pb-6">
-              <Button className="w-full h-12 text-lg font-semibold bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 shadow-lg transform transition-all duration-200 hover:scale-105">
-                Subscribe Now
-              </Button>
+              <form action={createCheckout}>
+                <input
+                  type="hidden"
+                  name="priceId"
+                  value={process.env.STRIPE_PRICE_ID}
+                />
+
+                <Button
+                  type="submit"
+                  className="w-full h-12 text-lg font-semibold bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 shadow-lg transform transition-all duration-200 hover:scale-105"
+                >
+                  Subscribe Now
+                </Button>
+              </form>
 
               <p className="text-xs text-gray-500 text-center mt-4">
                 Cancel anytime. No long-term commitments.
