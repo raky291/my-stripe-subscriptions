@@ -1,4 +1,5 @@
-import { Check, Star } from "lucide-react";
+import { Check, Star, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 import {
   Card,
   CardHeader,
@@ -15,13 +16,22 @@ export default async function SubscriptionPlansPage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
       <div className="max-w-6xl mx-auto py-12">
         {/* Header */}
-        <div className="flex flex-col justify-center items-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            Choose Your Subscription Plan
-          </h1>
-          <p className="text-lg text-gray-600">
-            Select the plan that best fits your needs
-          </p>
+        <div className="flex items-center justify-between mb-8">
+          <Link href="/protected">
+            <Button variant="outline" size="sm">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Dashboard
+            </Button>
+          </Link>
+          <div className="flex flex-col justify-center items-center">
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+              Choose Your Subscription Plan
+            </h1>
+            <p className="text-lg text-gray-600">
+              Select the plan that best fits your needs
+            </p>
+          </div>
+          <div className="w-32"></div> {/* Spacer for centering */}
         </div>
 
         {/* Plan Card */}

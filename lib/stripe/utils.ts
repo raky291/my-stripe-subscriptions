@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { createCheckoutSession } from "./server";
+import { createBillingPortalSession, createCheckoutSession } from "./server";
 
 export async function checkout({
   userId,
@@ -26,6 +26,25 @@ export async function checkout({
 
   if (!session.url) {
     throw new Error("Failed to create checkout session");
+  }
+
+  redirect(session.url);
+}
+
+export async function customerPortal({
+  customerId,
+  returnUrl,
+}: {
+  customerId: string;
+  returnUrl: string;
+}) {
+  const session = await createBillingPortalSession({
+    customerId,
+    returnUrl,
+  });
+
+  if (!session.url) {
+    throw new Error("Failed to create billing portal session");
   }
 
   redirect(session.url);
