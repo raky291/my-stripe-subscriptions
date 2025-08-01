@@ -74,7 +74,7 @@ export default async function PaymentSuccessPage() {
           {/* What's Next Card */}
           <Card className="mb-6">
             <CardHeader>
-              <CardTitle>What's Next?</CardTitle>
+              <CardTitle>What&apos;s Next?</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -85,7 +85,7 @@ export default async function PaymentSuccessPage() {
                   <div>
                     <h3 className="font-semibold mb-1">Email Confirmation</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
-                      We've sent a receipt to your email
+                      We&apos;ve sent a receipt to your email
                     </p>
                   </div>
                 </div>

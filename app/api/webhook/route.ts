@@ -27,6 +27,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unexpected error";
 
+    console.error(message);
     return new NextResponse(message, { status: 500 });
   }
 }
