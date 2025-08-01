@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:migrate": "tsx scripts/migrate.ts"
+    "stripe:migrate": "tsx scripts/migrate.ts",
+    "stripe:sync": "tsx scripts/sync-backfill.ts"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.7",
