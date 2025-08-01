@@ -38,7 +38,7 @@ export async function updateSession(request: NextRequest) {
 
   const user = data?.claims;
 
-  const publicRoutes = ["/api/create-customer"];
+  const publicRoutes = ["/api/create-customer", "/api/webhook"];
 
   const isPublicRoute = publicRoutes.includes(request.nextUrl.pathname);
 
