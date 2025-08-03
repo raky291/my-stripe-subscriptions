@@ -1,6 +1,8 @@
 {
   "words": [
+    "fkey",
     "oklch",
+    "pkey",
     "plpgsql",
     "supabase",
     "turbopack",
