@@ -12,7 +12,7 @@ const stripeSync = new StripeSync({
   stripeWebhookSecret,
   stripeApiVersion: "2025-05-28.basil",
   autoExpandLists: true,
-  backfillRelatedEntities: false,
+  backfillRelatedEntities: true,
   maxPostgresConnections: 5,
 });
 
