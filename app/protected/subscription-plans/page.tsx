@@ -9,7 +9,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { createCheckout } from "./actions";
+import { checkoutAction } from "@/lib/stripe/actions";
 
 export default async function SubscriptionPlansPage() {
   return (
@@ -87,7 +87,7 @@ export default async function SubscriptionPlansPage() {
             </CardContent>
 
             <CardFooter className="flex-col px-6 pb-6">
-              <form action={createCheckout}>
+              <form action={checkoutAction}>
                 <input
                   type="hidden"
                   name="priceId"

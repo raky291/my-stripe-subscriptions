@@ -1,4 +1,5 @@
 import Stripe from "stripe";
+import { redirect } from "next/navigation";
 
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2025-05-28.basil",
@@ -51,10 +52,14 @@ export async function createCheckoutSession({
     },
   });
 
-  return session;
+  if (!session.url) {
+    throw new Error("Checkout session URL is not available");
+  }
+
+  redirect(session.url);
 }
 
-export async function createBillingPortalSession({
+export async function createCustomerPortalSession({
   customerId,
   returnUrl,
 }: {
@@ -66,5 +71,5 @@ export async function createBillingPortalSession({
     return_url: returnUrl,
   });
 
-  return session;
+  redirect(session.url);
 }

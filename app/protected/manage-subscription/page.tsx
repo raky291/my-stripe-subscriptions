@@ -9,14 +9,13 @@ import {
   CheckCircle,
   Settings,
   ArrowLeft,
-  Pause,
   X,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { createClient } from "@/lib/server";
-import { createCustomerPortal } from "./actions";
+import { customerPortalAction } from "@/lib/stripe/actions";
 
 export default async function ManageSubscriptionPage() {
   const supabase = await createClient();
@@ -181,7 +180,7 @@ export default async function ManageSubscriptionPage() {
 
                   {/* Action Buttons */}
                   <div className="flex flex-wrap gap-3 pt-4 border-t">
-                    <form action={createCustomerPortal}>
+                    <form action={customerPortalAction}>
                       <Button
                         type="submit"
                         className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700"

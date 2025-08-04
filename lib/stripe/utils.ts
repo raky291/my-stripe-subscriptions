@@ -1,51 +1,27 @@
-"use server";
+import { createClient } from "@/lib/server";
+import { getCustomerByUserId } from "./queries";
 
-import { redirect } from "next/navigation";
-import { createBillingPortalSession, createCheckoutSession } from "./server";
+type ActionWithCustomer = (
+  formData: FormData,
+  userId: string,
+  customerId: string
+) => Promise<void>;
 
-export async function checkout({
-  userId,
-  customerId,
-  priceId,
-  successUrl,
-  cancelUrl,
-}: {
-  userId: string;
-  customerId: string;
-  priceId: string;
-  successUrl: string;
-  cancelUrl: string;
-}) {
-  const session = await createCheckoutSession({
-    userId,
-    customerId,
-    priceId,
-    successUrl,
-    cancelUrl,
-  });
+export function withCustomer(action: ActionWithCustomer) {
+  return async (formData: FormData): Promise<void> => {
+    const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) {
+      throw new Error("User not authenticated");
+    }
 
-  if (!session.url) {
-    throw new Error("Failed to create checkout session");
-  }
+    const customer = await getCustomerByUserId({ userId: user.id });
+    if (!customer || !customer.id) {
+      throw new Error("Customer not found");
+    }
 
-  redirect(session.url);
-}
-
-export async function customerPortal({
-  customerId,
-  returnUrl,
-}: {
-  customerId: string;
-  returnUrl: string;
-}) {
-  const session = await createBillingPortalSession({
-    customerId,
-    returnUrl,
-  });
-
-  if (!session.url) {
-    throw new Error("Failed to create billing portal session");
-  }
-
-  redirect(session.url);
+    return action(formData, user.id, customer.id);
+  };
 }
