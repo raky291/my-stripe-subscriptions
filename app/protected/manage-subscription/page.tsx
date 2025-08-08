@@ -124,7 +124,7 @@ export default async function ManageSubscriptionPage() {
                       {getStatusIcon(subscriptionData.status)}
                       <span
                         className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(
-                          subscriptionData.status
+                          subscriptionData.status,
                         )}`}
                       >
                         {subscriptionData.status.charAt(0).toUpperCase() +

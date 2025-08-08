@@ -17,7 +17,7 @@ export const checkoutAction = withCustomer(
       successUrl: `${process.env.BASE_URL}/protected/payment-success`,
       cancelUrl: `${process.env.BASE_URL}/protected/subscription-plans`,
     });
-  }
+  },
 );
 
 export const customerPortalAction = withCustomer(
@@ -26,5 +26,5 @@ export const customerPortalAction = withCustomer(
       customerId: customerId,
       returnUrl: `${process.env.BASE_URL}/protected/manage-subscription`,
     });
-  }
+  },
 );

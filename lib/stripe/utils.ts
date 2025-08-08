@@ -3,7 +3,7 @@ import { getCustomerByUserId, getUser } from "./queries";
 type ActionWithCustomer = (
   formData: FormData,
   userId: string,
-  customerId: string
+  customerId: string,
 ) => Promise<void>;
 
 export function withCustomer(action: ActionWithCustomer) {
