@@ -1,5 +1,12 @@
 import { createClient } from "@/lib/server";
 
+export async function getUser() {
+  const supabase = await createClient();
+  const { data } = await supabase.auth.getUser();
+
+  return data.user;
+}
+
 export async function getCustomerByUserId({ userId }: { userId: string }) {
   const supabase = await createClient();
   const { data, error } = await supabase

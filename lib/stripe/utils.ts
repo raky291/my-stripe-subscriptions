@@ -1,5 +1,4 @@
-import { createClient } from "@/lib/server";
-import { getCustomerByUserId } from "./queries";
+import { getCustomerByUserId, getUser } from "./queries";
 
 type ActionWithCustomer = (
   formData: FormData,
@@ -9,10 +8,7 @@ type ActionWithCustomer = (
 
 export function withCustomer(action: ActionWithCustomer) {
   return async (formData: FormData): Promise<void> => {
-    const supabase = await createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    const user = await getUser();
     if (!user) {
       throw new Error("User not authenticated");
     }
