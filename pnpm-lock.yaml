@@ -18,8 +18,8 @@ importers:
         specifier: ^0.6.1
         version: 0.6.1(@supabase/supabase-js@2.53.0)
       '@supabase/stripe-sync-engine':
-        specifier: ^0.39.0
-        version: 0.39.0(stripe@18.2.1(@types/node@20.19.9))
+        specifier: ^0.40.1
+        version: 0.40.1(stripe@18.2.1(@types/node@20.19.9))
       '@supabase/supabase-js':
         specifier: ^2.53.0
         version: 2.53.0
@@ -610,8 +610,8 @@ packages:
   '@supabase/storage-js@2.10.4':
     resolution: {integrity: sha512-cvL02GarJVFcNoWe36VBybQqTVRq6wQSOCvTS64C+eyuxOruFIm1utZAY0xi2qKtHJO3EjKaj8iWJKySusDmAQ==}
 
-  '@supabase/stripe-sync-engine@0.39.0':
-    resolution: {integrity: sha512-C8VLAgNkTbj+PrZLjo24Xrd8O3b4POZB4v/I4m2xRQhRTysM6PXR6JK1kIZPlAQEWjt6zZ4yUpN0eiaTS45I9Q==}
+  '@supabase/stripe-sync-engine@0.40.1':
+    resolution: {integrity: sha512-X88mlWJ36gyU7qZ4gonw/TPGuNnx/j8NeJGWAaO6D/gxcDhrYl96oudhd+kLBK3nl5Qfsib3CLPtLzXwaVYBHg==}
     peerDependencies:
       stripe: '> 11'
 
@@ -2621,7 +2621,7 @@ snapshots:
     dependencies:
       '@supabase/node-fetch': 2.6.15
 
-  '@supabase/stripe-sync-engine@0.39.0(stripe@18.2.1(@types/node@20.19.9))':
+  '@supabase/stripe-sync-engine@0.40.1(stripe@18.2.1(@types/node@20.19.9))':
     dependencies:
       pg: 8.16.3
       pg-node-migrations: 0.0.8

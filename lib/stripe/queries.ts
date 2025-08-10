@@ -7,7 +7,7 @@ export async function getUser() {
   return data.user;
 }
 
-export async function getCustomerByUserId({ userId }: { userId: string }) {
+export async function getCustomer({ userId }: { userId: string }) {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("customers_view")
@@ -15,6 +15,33 @@ export async function getCustomerByUserId({ userId }: { userId: string }) {
     .eq("user_id", userId)
     .limit(1)
     .maybeSingle();
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
+}
+
+export async function getActiveSubscription({ userId }: { userId: string }) {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("active_subscriptions_view")
+    .select("*")
+    .eq("user_id", userId)
+    .limit(1)
+    .maybeSingle();
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
+}
+
+export async function getProducts() {
+  const supabase = await createClient();
+  const { data, error } = await supabase.from("products_view").select("*");
 
   if (error) {
     throw error;

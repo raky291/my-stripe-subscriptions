@@ -10,6 +10,7 @@
     "lint:fix": "next lint --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "gen:types": "supabase gen types typescript --local > lib/database.types.ts",
     "stripe:migrate": "tsx scripts/migrate.ts",
     "stripe:sync": "tsx scripts/sync-backfill.ts"
   },
@@ -17,7 +18,7 @@
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@supabase/ssr": "^0.6.1",
-    "@supabase/stripe-sync-engine": "^0.39.0",
+    "@supabase/stripe-sync-engine": "^0.40.1",
     "@supabase/supabase-js": "^2.53.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

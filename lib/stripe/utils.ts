@@ -1,4 +1,4 @@
-import { getCustomerByUserId, getUser } from "./queries";
+import { getCustomer, getUser } from "./queries";
 
 type ActionWithCustomer = (
   formData: FormData,
@@ -13,7 +13,7 @@ export function withCustomer(action: ActionWithCustomer) {
       throw new Error("User not authenticated");
     }
 
-    const customer = await getCustomerByUserId({ userId: user.id });
+    const customer = await getCustomer({ userId: user.id });
     if (!customer || !customer.id) {
       throw new Error("Customer not found");
     }
