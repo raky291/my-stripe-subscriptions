@@ -41,7 +41,10 @@ export async function getActiveSubscription({ userId }: { userId: string }) {
 
 export async function getProducts() {
   const supabase = await createClient();
-  const { data, error } = await supabase.from("products_view").select("*");
+  const { data, error } = await supabase
+    .from("products_view")
+    .select("*")
+    .order("unit_amount");
 
   if (error) {
     throw error;

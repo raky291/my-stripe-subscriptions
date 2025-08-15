@@ -38,7 +38,7 @@ export async function updateSession(request: NextRequest) {
 
   const user = data?.claims;
 
-  const publicRoutes = ["/api/create-customer", "/api/webhook"];
+  const publicRoutes = ["/api/stripe/create-customer", "/api/stripe/webhook"];
 
   const isPublicRoute = publicRoutes.includes(request.nextUrl.pathname);
 
