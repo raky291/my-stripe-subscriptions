@@ -14,17 +14,17 @@ import { checkoutAction } from "@/lib/stripe/actions";
 export default async function SubscriptionPlansPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
-      <div className="max-w-6xl mx-auto py-12">
+      <div className="mx-auto max-w-6xl py-12">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="mb-8 flex items-center justify-between">
           <Link href="/protected">
             <Button variant="outline" size="sm">
-              <ArrowLeft className="w-4 h-4 mr-2" />
+              <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Dashboard
             </Button>
           </Link>
-          <div className="flex flex-col justify-center items-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="mb-2 text-4xl font-bold text-gray-900">
               Choose Your Subscription Plan
             </h1>
             <p className="text-lg text-gray-600">
@@ -36,20 +36,20 @@ export default async function SubscriptionPlansPage() {
 
         {/* Plan Card */}
         <div className="flex justify-center">
-          <Card className="w-full max-w-md relative overflow-hidden border-2 border-indigo-200 shadow-2xl">
+          <Card className="relative w-full max-w-md overflow-hidden border-2 border-indigo-200 shadow-2xl">
             {/* Popular Badge */}
-            <div className="absolute top-0 right-0 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-1 text-sm font-semibold rounded-bl-lg">
+            <div className="absolute top-0 right-0 rounded-bl-lg bg-gradient-to-r from-indigo-500 to-purple-600 px-4 py-1 text-sm font-semibold text-white">
               <div className="flex items-center gap-1">
-                <Star className="w-4 h-4 fill-current" />
+                <Star className="h-4 w-4 fill-current" />
                 Most Popular
               </div>
             </div>
 
-            <CardHeader className="text-center pt-8">
+            <CardHeader className="pt-8 text-center">
               <CardTitle className="text-3xl font-bold text-gray-900">
                 Premium Plan
               </CardTitle>
-              <CardDescription className="text-lg text-gray-600 mt-2">
+              <CardDescription className="mt-2 text-lg text-gray-600">
                 Perfect for advanced users
               </CardDescription>
 
@@ -59,9 +59,9 @@ export default async function SubscriptionPlansPage() {
                   <span className="text-5xl font-bold text-indigo-600">
                     $29
                   </span>
-                  <span className="text-xl text-gray-500 ml-1">/month</span>
+                  <span className="ml-1 text-xl text-gray-500">/month</span>
                 </div>
-                <p className="text-sm text-gray-500 mt-2">Billed monthly</p>
+                <p className="mt-2 text-sm text-gray-500">Billed monthly</p>
               </div>
             </CardHeader>
 
@@ -79,7 +79,7 @@ export default async function SubscriptionPlansPage() {
                   "Advanced customization",
                 ].map((feature, index) => (
                   <li key={index} className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <Check className="h-5 w-5 flex-shrink-0 text-green-500" />
                     <span className="text-gray-700">{feature}</span>
                   </li>
                 ))}
@@ -96,13 +96,13 @@ export default async function SubscriptionPlansPage() {
 
                 <Button
                   type="submit"
-                  className="w-full h-12 text-lg font-semibold bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 shadow-lg transform transition-all duration-200 hover:scale-105"
+                  className="h-12 w-full transform bg-gradient-to-r from-indigo-500 to-purple-600 text-lg font-semibold shadow-lg transition-all duration-200 hover:scale-105 hover:from-indigo-600 hover:to-purple-700"
                 >
                   Subscribe Now
                 </Button>
               </form>
 
-              <p className="text-xs text-gray-500 text-center mt-4">
+              <p className="mt-4 text-center text-xs text-gray-500">
                 Cancel anytime. No long-term commitments.
               </p>
             </CardFooter>
@@ -110,17 +110,17 @@ export default async function SubscriptionPlansPage() {
         </div>
 
         {/* Additional Info */}
-        <div className="text-center mt-12">
-          <div className="bg-white rounded-lg shadow-lg p-6 max-w-2xl mx-auto">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+        <div className="mt-12 text-center">
+          <div className="mx-auto max-w-2xl rounded-lg bg-white p-6 shadow-lg">
+            <h3 className="mb-4 text-xl font-semibold text-gray-900">
               Why choose our Premium Plan?
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               <div className="text-center">
-                <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Check className="w-6 h-6 text-indigo-600" />
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100">
+                  <Check className="h-6 w-6 text-indigo-600" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">
+                <h4 className="mb-2 font-semibold text-gray-900">
                   Guaranteed Quality
                 </h4>
                 <p className="text-sm text-gray-600">
@@ -129,10 +129,10 @@ export default async function SubscriptionPlansPage() {
               </div>
 
               <div className="text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Star className="w-6 h-6 text-green-600 fill-current" />
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+                  <Star className="h-6 w-6 fill-current text-green-600" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">
+                <h4 className="mb-2 font-semibold text-gray-900">
                   Exceptional Support
                 </h4>
                 <p className="text-sm text-gray-600">
@@ -141,10 +141,10 @@ export default async function SubscriptionPlansPage() {
               </div>
 
               <div className="text-center">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <div className="w-6 h-6 bg-purple-600 rounded-full"></div>
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-purple-100">
+                  <div className="h-6 w-6 rounded-full bg-purple-600"></div>
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">
+                <h4 className="mb-2 font-semibold text-gray-900">
                   Continuous Updates
                 </h4>
                 <p className="text-sm text-gray-600">

@@ -8,13 +8,13 @@ export default async function PaymentSuccessPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950/20 dark:to-blue-950/20">
       <div className="container mx-auto px-4 py-12">
-        <div className="max-w-2xl mx-auto">
+        <div className="mx-auto max-w-2xl">
           {/* Success Icon and Title */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full mb-4">
-              <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
+          <div className="mb-8 text-center">
+            <div className="mb-4 inline-flex h-20 w-20 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+              <CheckCircle className="h-10 w-10 text-green-600 dark:text-green-400" />
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+            <h1 className="mb-2 text-4xl font-bold text-gray-900 dark:text-white">
               Payment Successful!
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">
@@ -26,12 +26,12 @@ export default async function PaymentSuccessPage() {
           <Card className="mb-6">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-600" />
+                <CheckCircle className="h-5 w-5 text-green-600" />
                 Payment Details
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
                   <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
                     Plan
@@ -58,12 +58,12 @@ export default async function PaymentSuccessPage() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t">
-                <div className="flex justify-between items-center">
+              <div className="border-t pt-4">
+                <div className="flex items-center justify-between">
                   <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
                     Transaction ID
                   </p>
-                  <p className="font-mono text-sm bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
+                  <p className="rounded bg-gray-100 px-2 py-1 font-mono text-sm dark:bg-gray-800">
                     txn_1NXWnLGswQQ9xXyz123456
                   </p>
                 </div>
@@ -79,11 +79,11 @@ export default async function PaymentSuccessPage() {
             <CardContent>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Mail className="w-3 h-3 text-blue-600 dark:text-blue-400" />
+                  <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/30">
+                    <Mail className="h-3 w-3 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Email Confirmation</h3>
+                    <h3 className="mb-1 font-semibold">Email Confirmation</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
                       We&apos;ve sent a receipt to your email
                     </p>
@@ -91,11 +91,11 @@ export default async function PaymentSuccessPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Download className="w-3 h-3 text-purple-600 dark:text-purple-400" />
+                  <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900/30">
+                    <Download className="h-3 w-3 text-purple-600 dark:text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Immediate Access</h3>
+                    <h3 className="mb-1 font-semibold">Immediate Access</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
                       You now have access to all premium features of your
                       account
@@ -104,11 +104,11 @@ export default async function PaymentSuccessPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <ArrowRight className="w-3 h-3 text-green-600 dark:text-green-400" />
+                  <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+                    <ArrowRight className="h-3 w-3 text-green-600 dark:text-green-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">24/7 Support</h3>
+                    <h3 className="mb-1 font-semibold">24/7 Support</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
                       Our team is available to help you at any time
                     </p>
@@ -119,7 +119,7 @@ export default async function PaymentSuccessPage() {
           </Card>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Link href="/protected" className="flex-1 sm:flex-none">
               <Button size="lg" className="w-full sm:w-auto">
                 Go to Dashboard
@@ -136,18 +136,18 @@ export default async function PaymentSuccessPage() {
             </Link>
 
             <Button variant="outline" size="lg" className="w-full sm:w-auto">
-              <Download className="w-4 h-4 mr-2" />
+              <Download className="mr-2 h-4 w-4" />
               Download Receipt
             </Button>
           </div>
 
           {/* Footer */}
-          <div className="text-center mt-12 pt-8 border-t">
+          <div className="mt-12 border-t pt-8 text-center">
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Have questions? Contact us at{" "}
               <a
                 href="mailto:support@example.com"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-blue-600 hover:underline dark:text-blue-400"
               >
                 support@example.com
               </a>
