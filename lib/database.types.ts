@@ -63,13 +63,14 @@ export type Database = {
       }
       products_view: {
         Row: {
+          cta: string | null
           currency: string | null
           description: string | null
           features: Json | null
           id: string | null
           interval: string | null
           name: string | null
-          popular: string | null
+          popular: boolean | null
           price_id: string | null
           unit_amount: number | null
         }
