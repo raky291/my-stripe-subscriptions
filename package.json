@@ -10,7 +10,7 @@
     "lint:fix": "next lint --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "gen:types": "supabase gen types typescript --local > lib/database.types.ts",
+    "gen:types": "supabase gen types typescript --local > lib/database-generated.types.ts",
     "stripe:migrate": "tsx scripts/migrate.ts",
     "stripe:sync": "tsx scripts/sync-backfill.ts"
   },
@@ -44,6 +44,7 @@
     "tailwindcss": "^4.1.12",
     "tsx": "^4.20.3",
     "tw-animate-css": "^1.3.6",
+    "type-fest": "^4.41.0",
     "typescript": "^5"
   }
 }

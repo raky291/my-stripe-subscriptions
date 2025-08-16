@@ -11,7 +11,7 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = defineConfig([
-  globalIgnores(["**/database.types.ts"]),
+  globalIgnores(["**/database-generated.types.ts"]),
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 ]);
 
