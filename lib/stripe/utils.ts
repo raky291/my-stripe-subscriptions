@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { getCustomer, getUser } from "./queries";
 
 type ActionWithCustomer = (
@@ -10,7 +11,7 @@ export function withCustomer(action: ActionWithCustomer) {
   return async (formData: FormData): Promise<void> => {
     const user = await getUser();
     if (!user) {
-      throw new Error("User not authenticated");
+      redirect("/auth/login");
     }
 
     const customer = await getCustomer({ userId: user.id });

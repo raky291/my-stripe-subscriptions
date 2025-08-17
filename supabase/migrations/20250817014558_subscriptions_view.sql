@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW public.active_subscriptions_view AS
+CREATE OR REPLACE VIEW public.subscriptions_view AS
 SELECT
     s.id                    AS id,
     c.id                    AS customer_id,

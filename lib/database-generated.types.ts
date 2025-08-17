@@ -37,15 +37,6 @@ export type Database = {
       [_ in never]: never
     }
     Views: {
-      active_subscriptions_view: {
-        Row: {
-          customer_id: string | null
-          id: string | null
-          status: string | null
-          user_id: string | null
-        }
-        Relationships: []
-      }
       customers_view: {
         Row: {
           id: string | null
@@ -73,6 +64,15 @@ export type Database = {
           popular: boolean | null
           price_id: string | null
           unit_amount: number | null
+        }
+        Relationships: []
+      }
+      subscriptions_view: {
+        Row: {
+          customer_id: string | null
+          id: string | null
+          status: string | null
+          user_id: string | null
         }
         Relationships: []
       }

@@ -23,10 +23,10 @@ export async function getCustomer({ userId }: { userId: string }) {
   return data;
 }
 
-export async function getActiveSubscription({ userId }: { userId: string }) {
+export async function getSubscription({ userId }: { userId: string }) {
   const supabase = await createClient();
   const { data, error } = await supabase
-    .from("active_subscriptions_view")
+    .from("subscriptions_view")
     .select("*")
     .eq("user_id", userId)
     .limit(1)
