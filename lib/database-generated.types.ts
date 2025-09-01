@@ -69,8 +69,16 @@ export type Database = {
       }
       subscriptions_view: {
         Row: {
+          current_period_end: number | null
           customer_id: string | null
           id: string | null
+          price_currency: string | null
+          price_id: string | null
+          price_interval: string | null
+          price_unit_amount: number | null
+          product_description: string | null
+          product_id: string | null
+          product_name: string | null
           status: string | null
           user_id: string | null
         }

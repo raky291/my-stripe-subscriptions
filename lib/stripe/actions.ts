@@ -25,7 +25,7 @@ export const customerPortalAction = withCustomer(
   async (_formData, _userId, customerId) => {
     await createCustomerPortalSession({
       customerId: customerId,
-      returnUrl: `${process.env.BASE_URL}/account`,
+      returnUrl: `${process.env.BASE_URL}/billing`,
     });
   },
 );
