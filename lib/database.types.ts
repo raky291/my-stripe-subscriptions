@@ -1,4 +1,5 @@
 import { MergeDeep } from "type-fest";
+
 import { Database as DatabaseGenerated } from "./database-generated.types";
 
 type Feature = {

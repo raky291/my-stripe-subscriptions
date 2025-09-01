@@ -1,18 +1,18 @@
-import { redirect } from "next/navigation";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import {
-  User,
+  Calendar,
   CreditCard,
+  Mail,
   Package,
   Settings,
-  Mail,
-  Calendar,
+  User,
 } from "lucide-react";
 
-import { LogoutButton } from "@/components/logout-button";
+import { createClient } from "@/lib/server";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { createClient } from "@/lib/server";
+import { LogoutButton } from "@/components/logout-button";
 
 export default async function ProtectedPage() {
   const supabase = await createClient();

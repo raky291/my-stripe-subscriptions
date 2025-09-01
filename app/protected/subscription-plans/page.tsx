@@ -1,15 +1,16 @@
-import { Check, Star, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { ArrowLeft, Check, Star } from "lucide-react";
+
+import { checkoutAction } from "@/lib/stripe/actions";
+import { Button } from "@/components/ui/button";
 import {
   Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { checkoutAction } from "@/lib/stripe/actions";
 
 export default async function SubscriptionPlansPage() {
   return (

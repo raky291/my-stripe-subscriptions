@@ -1,5 +1,5 @@
-import { config } from "dotenv";
 import { StripeSync } from "@supabase/stripe-sync-engine";
+import { config } from "dotenv";
 
 config();
 

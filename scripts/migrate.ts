@@ -1,5 +1,5 @@
-import { config } from "dotenv";
 import { runMigrations } from "@supabase/stripe-sync-engine";
+import { config } from "dotenv";
 
 config();
 

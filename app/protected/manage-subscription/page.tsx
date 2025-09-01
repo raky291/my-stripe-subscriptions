@@ -1,21 +1,21 @@
-import { redirect } from "next/navigation";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import {
-  CreditCard,
+  AlertCircle,
+  ArrowLeft,
   Calendar,
+  CheckCircle,
+  CreditCard,
   DollarSign,
   Download,
-  AlertCircle,
-  CheckCircle,
   Settings,
-  ArrowLeft,
   X,
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { createClient } from "@/lib/server";
 import { customerPortalAction } from "@/lib/stripe/actions";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default async function ManageSubscriptionPage() {
   const supabase = await createClient();

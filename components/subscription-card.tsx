@@ -1,3 +1,6 @@
+import { format } from "date-fns";
+
+import { customerPortalAction } from "@/lib/stripe/actions";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,8 +11,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { customerPortalAction } from "@/lib/stripe/actions";
-import { format } from "date-fns";
 
 export type Subscription = {
   id: string | null;
