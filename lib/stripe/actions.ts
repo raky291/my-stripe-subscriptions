@@ -2,8 +2,30 @@
 
 import { redirect } from "next/navigation";
 
+import { getCustomer, getUser } from "./queries";
 import { createCheckoutSession, createCustomerPortalSession } from "./server";
-import { withCustomer } from "./utils";
+
+type ActionWithCustomer<T> = (
+  formData: FormData,
+  userId: string,
+  customerId: string,
+) => Promise<T>;
+
+function withCustomer<T>(action: ActionWithCustomer<T>) {
+  return async (formData: FormData): Promise<T> => {
+    const user = await getUser();
+    if (!user) {
+      redirect("/auth/login");
+    }
+
+    const customer = await getCustomer({ userId: user.id });
+    if (!customer || !customer.id) {
+      throw new Error("Customer not found");
+    }
+
+    return action(formData, user.id, customer.id);
+  };
+}
 
 export const checkoutAction = withCustomer(
   async (formData, userId, customerId) => {
