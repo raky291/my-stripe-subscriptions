@@ -12,10 +12,10 @@ import {
   X,
 } from "lucide-react";
 
-import { createClient } from "@/lib/server";
-import { customerPortalAction } from "@/lib/stripe/actions";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { createClient } from "@/lib/server";
+import { customerPortalAction } from "@/lib/stripe/actions";
 
 export default async function ManageSubscriptionPage() {
   const supabase = await createClient();

@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
-import { getSubscription, getUser } from "@/lib/stripe/queries";
 import { SubscriptionCard } from "@/components/subscription-card";
+import { getSubscription, getUser } from "@/lib/stripe/queries";
 
 export default async function BillingPage() {
   const user = await getUser();

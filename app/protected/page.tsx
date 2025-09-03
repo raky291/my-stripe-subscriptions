@@ -9,10 +9,10 @@ import {
   User,
 } from "lucide-react";
 
-import { createClient } from "@/lib/server";
+import { LogoutButton } from "@/components/logout-button";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { LogoutButton } from "@/components/logout-button";
+import { createClient } from "@/lib/server";
 
 export default async function ProtectedPage() {
   const supabase = await createClient();

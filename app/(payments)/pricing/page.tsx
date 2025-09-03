@@ -1,5 +1,5 @@
-import { getProducts } from "@/lib/stripe/queries";
 import { PricingTable, type Plan } from "@/components/pricing-table";
+import { getProducts } from "@/lib/stripe/queries";
 
 export default async function PricingPage() {
   const products = await getProducts();
