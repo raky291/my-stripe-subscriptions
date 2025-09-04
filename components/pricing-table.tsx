@@ -30,12 +30,24 @@ export type Plan = {
   popular: boolean | null;
 };
 
-export function PricingTable({ plans }: { plans?: Plan[] }) {
+export function PricingTable({ plans }: { plans?: Plan[] | null }) {
+  if (!plans || plans.length === 0) {
+    return <PricingEmptyState />;
+  }
+
   return (
-    <div className="mx-auto grid w-full max-w-6xl gap-8 md:grid-cols-3">
-      {plans?.map((plan, index) => (
+    <div className="grid gap-8 md:grid-cols-3">
+      {plans.map((plan, index) => (
         <PricingCard key={index} plan={plan} />
       ))}
+    </div>
+  );
+}
+
+export function PricingEmptyState() {
+  return (
+    <div className="flex flex-col items-center">
+      <p>No subscription pricing plans found.</p>
     </div>
   );
 }
@@ -52,9 +64,9 @@ export function PricingCard({ plan }: { plan: Plan }) {
       <CardHeader>
         <CardTitle>{plan.name}</CardTitle>
 
-        <div className="mt-4 flex items-baseline gap-1">
+        <div className="mt-4 flex items-baseline">
           <span className="text-4xl font-bold">${plan.unit_amount}</span>
-          <span className="text-muted-foreground text-sm">
+          <span className="text-muted-foreground ml-1 text-sm">
             {plan.currency}/{plan.interval}
           </span>
         </div>

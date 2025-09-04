@@ -5,8 +5,8 @@ export default async function PricingPage() {
   const products = await getProducts();
 
   return (
-    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-      <div className="w-full">
+    <div className="flex min-h-svh flex-col items-center justify-center p-6 md:p-10">
+      <div className="w-full max-w-6xl">
         <PricingTable plans={products as Plan[]} />
       </div>
     </div>
