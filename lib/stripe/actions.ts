@@ -34,14 +34,14 @@ export const checkoutAction = withCustomer(
   async (formData, userId, customerId) => {
     const priceId = formData.get("priceId") as string | null;
     if (!priceId) {
-      redirect("/protected");
+      throw new Error("Price ID is required");
     }
 
     await createCheckoutSession({
       userId: userId,
       customerId: customerId,
       priceId: priceId,
-      successUrl: `${process.env.BASE_URL}/protected`,
+      successUrl: `${process.env.BASE_URL}/`,
       cancelUrl: `${process.env.BASE_URL}/pricing`,
     });
   },

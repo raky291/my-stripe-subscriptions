@@ -1,4 +1,4 @@
-import { PricingTable, type Plan } from "@/components/pricing-table";
+import { PricingTable } from "@/components/pricing-table";
 import { getProducts } from "@/lib/stripe/queries";
 
 export default async function PricingPage() {
@@ -7,7 +7,7 @@ export default async function PricingPage() {
   return (
     <div className="flex min-h-svh flex-col items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-6xl">
-        <PricingTable plans={products as Plan[]} />
+        <PricingTable plans={products} />
       </div>
     </div>
   );

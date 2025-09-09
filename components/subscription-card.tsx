@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { format } from "date-fns";
 
 import { Button } from "@/components/ui/button";
@@ -39,31 +40,51 @@ export function SubscriptionCard({
         <CardDescription>Your active subscription details</CardDescription>
       </CardHeader>
 
-      {subscription ? (
-        <ActiveSubscription subscription={subscription} />
+      {!subscription ? (
+        <SubscriptionEmptyState />
       ) : (
-        <FreeSubscription />
+        <ActiveSubscription subscription={subscription} />
       )}
     </Card>
   );
 }
 
-export function FreeSubscription() {
-  return null;
+export function SubscriptionEmptyState() {
+  return (
+    <>
+      <CardContent>
+        <div className="flex flex-col items-center">
+          <p className="text-sm font-medium">
+            You don&apos;t have an active subscription
+          </p>
+          <p className="text-muted-foreground text-sm">
+            Choose a plan that fits your needs and get started
+          </p>
+        </div>
+      </CardContent>
+      <CardFooter className="border-t">
+        <Button variant="outline" asChild>
+          <Link href="/pricing">Choose a Plan</Link>
+        </Button>
+      </CardFooter>
+    </>
+  );
 }
 
 export function ActiveSubscription({
-  subscription: {
+  subscription,
+}: {
+  subscription: Subscription;
+}) {
+  const {
     product_name,
     product_description,
     price_currency,
     price_unit_amount,
     price_interval,
     current_period_end,
-  },
-}: {
-  subscription: Subscription;
-}) {
+  } = subscription;
+
   return (
     <>
       <CardContent className="flex flex-col gap-4">
@@ -96,12 +117,20 @@ export function ActiveSubscription({
       </CardContent>
 
       <CardFooter className="border-t">
-        <form action={customerPortalAction}>
-          <Button type="submit" variant="outline">
-            Manage Subscription
-          </Button>
-        </form>
+        <CustomerPortalButton variant="outline">
+          Manage Subscription
+        </CustomerPortalButton>
       </CardFooter>
     </>
+  );
+}
+
+export function CustomerPortalButton({
+  ...props
+}: React.ComponentProps<typeof Button>) {
+  return (
+    <form action={customerPortalAction}>
+      <Button type="submit" {...props} />
+    </form>
   );
 }
